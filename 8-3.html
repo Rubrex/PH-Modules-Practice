@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <script
+      src="https://kit.fontawesome.com/28551a1f4e.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+      nav a {
+        text-decoration: none;
+        color: rgb(22, 22, 22);
+        margin-left: 10px;
+        background-color: rgba(0, 0, 0, 0.158);
+        padding: 5px 15px;
+        border-radius: 2px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .login-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+      }
+      .login-form input {
+        margin-top: 1em;
+        font-size: 1.5em;
+        padding: 5px 10px;
+      }
+      .login-form input[type="submit"] {
+        background-color: rgb(29, 29, 29);
+        color: rgb(233, 233, 233);
+        border-radius: 5px;
+        border: none;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <span>
+          <a href="">Home</a>
+          <a href="">Dashboard</a>
+          <a href="">Inventory</a>
+        </span>
+        <span>
+          <a href=""><i class="fa-solid fa-user"></i> User</a>
+          <a href=""
+            ><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a
+          >
+        </span>
+      </nav>
+    </header>
+    <section class="login-container">
+      <form class="login-form">
+        <h3>Please Login</h3>
+        <input type="email" name="" id="" placeholder="Your Email" required />
+        <input type="password" name="" id="" placeholder="Password" required />
+        <input type="submit" />
+      </form>
+    </section>
+  </body>
+</html>
