@@ -47,7 +47,7 @@ function getGrade(name, yourGrade) {
     );
   } else if (yourGrade >= 40 && yourGrade < 50) {
     console.log(
-      "Hi " + name + "! You got " + yourGrade + " and your grade is " + "F"
+      "Hi " + name + "! You got " + yourGrade + " and your grade is " + "D"
     );
   }
 }
