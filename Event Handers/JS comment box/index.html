@@ -10,12 +10,30 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <style>
+      .list-group-item {
+        animation: fadeFromRight 0.3s ease-out;
+      }
+      @keyframes fadeFromRight {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body style="background-color: #f1f1f1; color: #100f0f">
     <div class="container rounded py-3 mt-5" style="background-color: #e7e7e7">
       <div class="card my-3">
         <div class="card-header">Comments Section</div>
-        <ul class="list-group list-group-flush" id="listContainer">
+        <ul
+          class="list-group list-group-flush overflow-hidden"
+          id="listContainer"
+        >
           <li class="list-group-item">First Comment</li>
           <li class="list-group-item">Second Comment</li>
           <li class="list-group-item">Third Comment</li>
