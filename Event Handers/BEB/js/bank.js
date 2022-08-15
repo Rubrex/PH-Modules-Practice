@@ -15,25 +15,25 @@ depositeBtn.addEventListener("click", () => {
   if (depositeInput.value.length == 0) {
     return alert("Please Enter amount in Taka");
   }
-  const amount = parseInt(depositeInput.value);
-  let newDeposite = parseInt(depositeText.innerText);
+  const amount = parseFloat(depositeInput.value);
+  let newDeposite = parseFloat(depositeText.innerText);
   newDeposite += amount;
-  depositeText.innerText = newDeposite;
-  let newBalance = parseInt(balanceText.innerText);
+  depositeText.innerText = newDeposite.toFixed(1);
+  let newBalance = parseFloat(balanceText.innerText);
   newBalance += amount;
-  balanceText.innerText = newBalance;
+  balanceText.innerText = newBalance.toFixed(1);
   depositeInput.value = "";
 });
 withdrawBtn.addEventListener("click", () => {
   if (withdrawInput.value.length == 0) {
     return alert("Please Enter amount in Taka");
   }
-  const amount = parseInt(withdrawInput.value);
-  let withdraw = parseInt(withdrawText.innerText);
+  const amount = parseFloat(withdrawInput.value);
+  let withdraw = parseFloat(withdrawText.innerText);
   withdraw += amount;
-  withdrawText.innerText = withdraw;
-  let newBalance = parseInt(balanceText.innerText);
+  withdrawText.innerText = withdraw.toFixed(1);
+  let newBalance = parseFloat(balanceText.innerText);
   newBalance -= amount;
-  balanceText.innerText = newBalance;
+  balanceText.innerText = newBalance.toFixed(1);
   withdrawInput.value = "";
 });
