@@ -6,8 +6,8 @@ document.getElementById("submit").addEventListener("click", () => {
 
   //   DANGER : Verify username and password on Server side
   if (email === "rubrex@gmail.com" && password === "1234") {
-    console.log("Valid username and password");
+    location.href = "bank.html";
   } else {
-    console.log("Invalid username and password");
+    alert("Please enter a valid email address and password");
   }
 });
