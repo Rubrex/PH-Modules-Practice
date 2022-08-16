@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Problem</title>
+  </head>
+  <body>
+    <h1>Exploring event bubble</h1>
+    <section>
+      <ul id="list-ul">
+        <li class="item">Lorem ipsum dolor sit amet.</li>
+        <li class="item1">Lorem ipsum dolor sit amet.</li>
+        <li class="item2">Lorem ipsum dolor sit amet.</li>
+        <li class="item3">Lorem ipsum dolor sit amet.</li>
+        <li class="item4">Lorem ipsum dolor sit amet.</li>
+        <li class="item5">Lorem ipsum dolor sit amet.</li>
+      </ul>
+    </section>
+    <script>
+      const item = document.querySelector(".item .item1");
+      console.log("byQuerySelector: " + item);
+
+      const itemByClass = document.getElementsByClassName("item");
+      console.log("byClassName: " + itemByClass);
+    </script>
+  </body>
+</html>
