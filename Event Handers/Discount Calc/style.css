@@ -1,0 +1,27 @@
+.shake {
+  animation: shaking 0.3s ease;
+}
+@keyframes shaking {
+  25% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+.discount {
+  position: relative;
+}
+.discount::after {
+  content: "30% OFF";
+  position: absolute;
+  top: 25px;
+  right: -15px;
+  transform: rotate(45deg);
+  background-color: #ff4949;
+  color: white;
+  padding: 0 20px;
+}
