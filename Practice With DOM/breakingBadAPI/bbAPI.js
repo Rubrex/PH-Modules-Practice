@@ -32,9 +32,8 @@ function character(data) {
         <h2 class="text-xl font-bold">
           ${person.name} 
         </h2>
-        <span class="text-xl font-bold text-slate-700">(${
-          person.nickname
-        })</span>
+        <span class="text-xl font-bold text-slate-700">(
+          ${person.nickname})</span>
         <p class="text-md font-semibold mt-2">
           Birthday: <span>${person.birthday}</span>
         </p>
