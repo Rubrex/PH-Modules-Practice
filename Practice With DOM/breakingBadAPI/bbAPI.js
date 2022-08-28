@@ -41,12 +41,8 @@ function character(data) {
           Portrayed: <span>${person.portrayed}</span>
         </p>
         <p class="text-md font-semibold">Occupation:</p>
-        <ul class="list-disc list-inside" >
-            <li>${person.occupation[0]}</li>
-            <li>${
-              person.occupation[1] === undefined ? " " : person.occupation[1]
-            }</li>
-          
+        <ul class="list-disc list-inside" id="occupation-${person.char_id}">
+          <!--Dynamically injecting occupations -->
         </ul>
         <p class="text-md font-semibold">
           Status: <span>${person.status}</span>
@@ -58,5 +54,17 @@ function character(data) {
       </div>
       `;
     cardsContainer.appendChild(div);
+    // Append Occupation && IIFE
+    (() => {
+      const occupationList = document.getElementById(
+        `occupation-${person.char_id}`
+      );
+
+      person.occupation.forEach((occ) => {
+        const li = document.createElement("li");
+        li.innerText = occ;
+        occupationList.appendChild(li);
+      });
+    })();
   });
 }
