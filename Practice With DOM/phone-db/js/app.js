@@ -46,16 +46,72 @@ const displayPhones = (phones, dataLimit) => {
         <h2 class="card-title">${phone.brand}</h2>
         <p>${phone.phone_name}</p>
         <div class="card-actions">
-            <button class="btn btn-outline btn-success font-bold text-md">Details</button>
+            <label for="my-modal-3" onclick="openModal('${phone.slug}')" class="btn modal-button font-bold text-md">Show Details</label>
         </div>
         </div>
     </div>
     `;
 
     cardsParent.appendChild(div);
-    console.log(phone);
   });
 };
+// Modal Input Btn
+async function openModal(slugId) {
+  const api = "https://openapi.programming-hero.com/api/phone/" + slugId;
+  const response = await fetch(api);
+  const data = await response.json();
+  modalShow(data.data);
+}
+// Modal Output
+function modalShow(phone) {
+  // Update Phone Name
+  const phoneName = document.getElementById("phoneName");
+  phoneName.innerText = phone.name;
+  // Update Image
+  const img = document.getElementById("deviceImage");
+  img.setAttribute("src", phone.image);
+  // Update Phone Descriptions
+  const parentContainer = document.getElementById("deviceInformation");
+  parentContainer.innerHTML = `
+  <p>
+    Release Date:
+    <span id="releaseDate">${
+      phone.releaseDate ? phone.releaseDate : "Not Found"
+    }</span>
+  </p>
+  <p>
+    Storage:
+    <span id="deviceStorage"
+      >${
+        phone.mainFeatures.storage
+          ? phone.mainFeatures.storage
+          : "No Storage Found"
+      }</span
+    >
+  </p>
+  <p>
+    Display:
+    <span id="displaySize"
+      >${
+        phone.mainFeatures.displaySize
+          ? phone.mainFeatures.displaySize
+          : "Not Found"
+      }</span
+    >
+  </p>
+  <p>Chipset: <span id="chipset">${
+    phone.mainFeatures.chipSet ? phone.mainFeatures.chipSet : "Not Found"
+  }</span></p>
+  <p>
+  Memory:
+  <span id="memory"
+    >${
+      phone.mainFeatures.memory ? phone.mainFeatures.memory : "Not Found"
+    }</span
+  >
+</p>
+  `;
+}
 // Process
 const processSearch = (dataLimit) => {
   const searchInputValue = document.getElementById("search-input").value;
@@ -64,6 +120,11 @@ const processSearch = (dataLimit) => {
   noPhoneFound.classList.add("hidden");
 };
 // Search Phones
+document
+  .getElementById("search-input")
+  .addEventListener("keyup", (e) =>
+    e.key === "Enter" ? processSearch(10) : ""
+  );
 document.getElementById("search-btn").addEventListener("click", () => {
   processSearch(10);
 });

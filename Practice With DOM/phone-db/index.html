@@ -37,7 +37,7 @@
           <div class="input-group justify-center glass rounded-md w-3/5">
             <input
               type="text"
-              placeholder="Search…"
+              placeholder="Khoj the Phone"
               class="input input-bordered bg-transparent text-white border-2 border-blue-400 w-full font-bold text-xl"
               id="search-input"
             />
@@ -89,6 +89,27 @@
         </div>
       </section>
     </main>
+    <!-- Modal -->
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative" id="modalDataShow">
+        <label
+          for="my-modal-3"
+          class="btn btn-sm btn-circle absolute right-2 top-2"
+          >✕</label
+        >
+        <div class="grid grid-cols-3 items-center">
+          <div>
+            <img id="deviceImage" src="" alt="phone" class="pr-4" />
+          </div>
+          <div class="col-span-2 flex flex-col gap-2">
+            <h2 class="text-xl font-bold uppercase" id="phoneName"></h2>
+            <div id="deviceInformation" class="font-medium"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="js/app.js"></script>
   </body>
 </html>
