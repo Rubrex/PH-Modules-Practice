@@ -3,8 +3,22 @@ const usernameField = document.getElementById("username-field");
 const emailField = document.getElementById("email-field");
 const messageField = document.getElementById("message-field");
 
+// Set Initial Value if not set
+localStorage.getItem("username") === null
+  ? localStorage.setItem("username", "example_username")
+  : "";
+localStorage.getItem("email") === null
+  ? localStorage.setItem("email", "example@gmail.com")
+  : "";
+localStorage.getItem("message") === null
+  ? localStorage.setItem("message", "this is an example message")
+  : "";
+// set local storage value to the input fields
+usernameField.value = localStorage.getItem("username");
+emailField.value = localStorage.getItem("email");
+messageField.value = localStorage.getItem("message");
+
 const getValuebyInput = (id) => {
-  //   const elem = document.getElementById(id);
   const elemString = id.value;
   return elemString;
 };
@@ -49,4 +63,7 @@ const setMess = () => {
 
 document.getElementById("reset-btn").addEventListener("click", () => {
   localStorage.clear();
+  usernameField.value = "";
+  emailField.value = "";
+  messageField.value = "";
 });
