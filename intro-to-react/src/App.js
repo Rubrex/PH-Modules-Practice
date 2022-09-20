@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  // styles for cards
+  const cards = {
+    display: "grid",
+    gridTemplateColumns: "repeat(3,1fr)",
+    justifyItems: "center",
+    gap: "10px",
+    maxWidth: "1169px",
+    margin: "0 auto",
+    marginTop: "40px",
+  };
+  // styles for card
+  const card = {
+    border: "2px solid white",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    desc: {
+      padding: "10px",
+    },
+  };
+
+  const Card = () => {
+    return (
+      <div style={card}>
+        <div>
+          <img src={logo} alt="" width="300px" />
+        </div>
+        <div style={card.desc}>
+          <h2>A card section</h2>
+          <p>
+            This is a simple card description that doesn't contain any major
+            information.
+          </p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={cards}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 }
