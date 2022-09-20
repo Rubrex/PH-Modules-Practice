@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   // styles for cards
@@ -22,6 +23,12 @@ function App() {
     desc: {
       padding: "10px 20px",
     },
+  };
+  // States
+  let [count, setCount] = useState(0);
+  let handleButton = (isIncrease = true) => {
+    isIncrease ? setCount((count = count + 1)) : setCount((count = count - 1));
+    console.log(count);
   };
 
   const Card = (props) => {
@@ -50,10 +57,11 @@ function App() {
     { name: "Vladimir Putin", field: "Politician" },
     { name: "Zelensky", field: "Politician" },
   ];
+
   const Person = powerfulPersons.map((person) => (
     <Card name={person.name} field={person.field}></Card>
   ));
-  console.log(Person);
+  // console.log(Person);
   return (
     <div className="App">
       <div style={cards}>
@@ -63,6 +71,27 @@ function App() {
         <Card name="Elon Musk" />
         <Card name="Vladimir Putin" />
         <Card name="Zelensky" /> */}
+      </div>
+      <div className="border d-flex flex-column align-items-center py-4">
+        <div className="py-1 bg-secondary fs-2 w-25 d-flex justify-content-center text-white rounded">
+          {count}
+        </div>
+        <div className="my-3">
+          <div className="btn-group ">
+            <div
+              className="btn btn-warning"
+              onClick={() => handleButton(false)}
+            >
+              Decrease
+            </div>
+            <div
+              className="btn btn-primary fw-semibold"
+              onClick={() => handleButton(true)}
+            >
+              Increase
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
