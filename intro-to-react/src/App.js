@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   // styles for cards
@@ -26,13 +26,38 @@ function App() {
   };
   // States
   let [count, setCount] = useState(0);
+  let [users, setUsers] = useState([]);
+  // Event Handlers
   let handleButton = (isIncrease = true) => {
     isIncrease ? setCount((count = count + 1)) : setCount((count = count - 1));
-    console.log(count);
   };
 
+  // useEffect for API calls
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+  // console.log(users);
+  const PersonsList = users.map((user) => {
+    return (
+      <div className="col">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{user.name}</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{user.email}</h6>
+            <p className="card-text">Username: {user.username}</p>
+            <p className="card-text">Phone: {user.phone}</p>
+            <p className="card-text">Website: {user.website}</p>
+            <p className="card-text">City: {user.address.city}</p>
+            <p className="card-text">Street: {user.address.street}</p>
+            <p className="card-text">Zip: {user.address.zipcode}</p>
+          </div>
+        </div>
+      </div>
+    );
+  });
   const Card = (props) => {
-    // console.log(props);
     return (
       <div style={card}>
         <div>
@@ -64,14 +89,8 @@ function App() {
   // console.log(Person);
   return (
     <div className="App">
-      <div style={cards}>
-        {Person}
-
-        {/* <Card name="Jeff Bezos" />
-        <Card name="Elon Musk" />
-        <Card name="Vladimir Putin" />
-        <Card name="Zelensky" /> */}
-      </div>
+      <div style={cards}>{Person}</div>
+      {/* Click Counter */}
       <div className="border d-flex flex-column align-items-center py-4">
         <div className="py-1 bg-secondary fs-2 w-25 d-flex justify-content-center text-white rounded">
           {count}
@@ -93,6 +112,14 @@ function App() {
           </div>
         </div>
       </div>
+      {/* Click Counter ends */}
+      {/* Persons Container from API call */}
+
+      <div className="container my-4">
+        <h2>List of Persons from API call + useEffect</h2>
+        <div className="row row-cols-1 row-cols-md-3 g-3">{PersonsList}</div>
+      </div>
+      {/* Persons Container from API call ends*/}
     </div>
   );
 }
