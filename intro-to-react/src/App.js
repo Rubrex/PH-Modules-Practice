@@ -9,8 +9,7 @@ function App() {
     justifyItems: "center",
     gap: "10px",
     maxWidth: "1169px",
-    margin: "0 auto",
-    marginTop: "40px",
+    margin: "40px auto",
   };
   // styles for card
   const card = {
@@ -18,19 +17,22 @@ function App() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: "10px",
     desc: {
-      padding: "10px",
+      padding: "10px 20px",
     },
   };
 
-  const Card = () => {
+  const Card = (props) => {
+    console.log(props);
     return (
       <div style={card}>
         <div>
           <img src={logo} alt="" width="300px" />
         </div>
         <div style={card.desc}>
-          <h2>A card section</h2>
+          <h2>{props.name}</h2>
           <p>
             This is a simple card description that doesn't contain any major
             information.
@@ -39,14 +41,13 @@ function App() {
       </div>
     );
   };
-
   return (
     <div className="App">
       <div style={cards}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card name="Jeff Bezos" />
+        <Card name="Elon Musk" />
+        <Card name="Vladimir Putin" />
+        <Card name="Zelensky" />
       </div>
     </div>
   );
