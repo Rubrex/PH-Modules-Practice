@@ -18,13 +18,3 @@
 .cart-container {
   background: rgba(255, 153, 0, 0.3);
 }
-.cart > h3 {
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
