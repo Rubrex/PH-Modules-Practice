@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faArrowRight, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
@@ -22,9 +21,9 @@ const Cart = (props) => {
       <h3>Order Summary</h3>
       <div className="cart-info">
         <p>Selected Items: {cart.length}</p>
-        <p>Total Price: {total}</p>
-        <p>Total Shipping Charge: {shippingCost}</p>
-        <p>Tax: {taxCost}</p>
+        <p>Total Price: ${total}</p>
+        <p>Total Shipping Charge: ${shippingCost}</p>
+        <p>Tax: ${taxCost}</p>
         <h3>Grand Total: ${grandTotal}</h3>
       </div>
       <div className="btn-group">
