@@ -13,6 +13,22 @@
   margin-top: 40px;
   margin-right: 20px;
 }
+@media screen and (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shop-container {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+@media screen and (max-width: 748px) {
+  .product-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .shop-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /* Cart Section */
 .cart-container {
