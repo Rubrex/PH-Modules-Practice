@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faArrowRight, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 import React from "react";
 import "./Cart.css";
 const Cart = (props) => {
@@ -24,8 +28,22 @@ const Cart = (props) => {
         <h3>Grand Total: ${grandTotal}</h3>
       </div>
       <div className="btn-group">
-        <button className="clear-btn">Clear Cart</button>
-        <button className="review-btn">Review Order</button>
+        <button className="clear-btn">
+          Clear Cart
+          <FontAwesomeIcon
+            icon={faTrash}
+            shake
+            style={{ color: "white", marginLeft: "5px" }}
+          />
+        </button>
+        <button className="review-btn">
+          Review Order
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            beatFade
+            style={{ color: "white", marginLeft: "5px" }}
+          />
+        </button>
       </div>
     </div>
   );

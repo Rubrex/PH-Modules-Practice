@@ -21,3 +21,27 @@
   flex-direction: column;
   gap: 10px;
 }
+.clear-btn,
+.review-btn {
+  color: white;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 18px;
+  border: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clear-btn {
+  background-color: #ff3030;
+}
+.clear-btn:hover {
+  background-color: #f11313;
+}
+.review-btn {
+  background-color: #ff9900;
+}
+.review-btn:hover {
+  background-color: #ffae35;
+}
