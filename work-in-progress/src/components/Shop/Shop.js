@@ -16,8 +16,17 @@ const Shop = () => {
   // Get data from local storage
   useEffect(() => {
     const storedCart = getStoredCart();
-    console.log(storedCart);
-  }, []);
+    const newCart = [];
+    // Looping through id from products and updating quantity from localStorage  to cart object
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        addedProduct.quantity = storedCart[id];
+        newCart.push(addedProduct);
+      }
+    }
+    setCart(newCart);
+  }, [products]);
   // event Handlers
   const addToCardHandler = (product) => {
     const newCart = [...cart, product];
