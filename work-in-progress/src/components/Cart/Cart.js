@@ -3,9 +3,10 @@ import { faArrowRight, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
 import "./Cart.css";
+import { deleteShoppingCart } from "../../utilities/fakedb";
 const Cart = (props) => {
-  const { cart } = props;
-  // console.log(cart);
+  const { cart, setCart } = props;
+  console.log(setCart);
   // Tax and Total Calculations
   let total = 0;
   let shipping = 0;
@@ -18,6 +19,11 @@ const Cart = (props) => {
   let tax = parseFloat((total * 0.1).toFixed(2));
   let grandTotal = (total + shipping + tax).toFixed(2);
 
+  // Clear Shopping Cart Handler
+  const clearCart = () => {
+    deleteShoppingCart();
+    setCart([]);
+  };
   return (
     <div className="cart">
       <h3>Order Summary</h3>
@@ -29,7 +35,7 @@ const Cart = (props) => {
         <h3>Grand Total: ${grandTotal}</h3>
       </div>
       <div className="btn-group">
-        <button className="clear-btn">
+        <button className="clear-btn" onClick={clearCart}>
           Clear Cart
           <FontAwesomeIcon
             icon={faTrash}
