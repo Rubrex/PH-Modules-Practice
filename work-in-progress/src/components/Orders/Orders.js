@@ -8,7 +8,6 @@ import "./Orders.css";
 const Orders = () => {
   const { products, initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
-  // console.log(products, cart);
   return (
     <div className="shop-container container">
       <div className="orders-container">
