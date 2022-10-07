@@ -12,8 +12,20 @@ const router = createBrowserRouter([
     element: <Main />,
     errorElement: <NotFound />,
     children: [
-      { path: "/", element: <Shop /> },
-      { path: "orders", element: <Orders /> },
+      {
+        path: "/",
+        element: <Shop />,
+        loader: async () => {
+          return fetch("products.json");
+        },
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+        loader: async () => {
+          return fetch("products.json");
+        },
+      },
       { path: "inventory", element: <Inventory /> },
     ],
   },
