@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 import React from "react";
 import "./Cart.css";
@@ -23,6 +24,12 @@ const Cart = (props) => {
   const clearCart = () => {
     deleteShoppingCart();
     setCart([]);
+    Swal.fire({
+      title: "Error!",
+      text: "Do you want to continue",
+      icon: "success",
+      confirmButtonText: "Cool",
+    });
   };
   return (
     <div className="cart">
